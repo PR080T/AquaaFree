@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.17.1",
+    "@sendgrid/mail": "^8.1.6",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
@@ -33,7 +34,6 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "autoprefixer": "^10.4.16",
-    "babel-jest": "^29.7.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
@@ -65,18 +65,15 @@
       ]
     }
   },
-  "description": "A modern Next.js application for water distribution and brand promotion services, combining corporate social responsibility with effective marketing. Founded by Amogh Jain, we focus on community harmony and sustainable practices.",
+  "description": "A modern Next.js application for water distribution and brand promotion services.",
   "main": "server.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
+  "engines": {
+    "node": "20.x"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PR080T/AquaaFree.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/PR080T/AquaaFree/issues"
