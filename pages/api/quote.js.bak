@@ -1,0 +1,21 @@
+export default function handler(req, res){
+  if(req.method !== 'POST') return res.status(405).json({error:'Method not allowed'})
+  const { qty = 100, duration = 1, placement = 'single' } = req.body || {}
+
+  const basePerBottle = placement === 'single' ? 0.5 : placement === 'batch' ? 0.45 : 0.9
+  const qtyNum = Number(qty)
+  const durationNum = Number(duration)
+
+  // simple pricing: unit price * qty * duration factor
+  const durationFactor = Math.min(4, Math.max(1, durationNum))
+  let price = basePerBottle * qtyNum * durationFactor
+
+  // volume discounts
+  if(qtyNum >= 500) price *= 0.9
+  if(qtyNum >= 1000) price *= 0.85
+
+  // ensure minimum
+  price = Math.max(price, 25)
+
+  return res.status(200).json({ price, summary: `${qtyNum} bottles for ${durationNum} week(s) — ${placement}` })
+}

@@ -1,0 +1,88 @@
+/* Base styles for form elements */
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 rounded-md border-gray-300 dark:border-gray-600
+         bg-white dark:bg-gray-700
+         text-gray-900 dark:text-gray-100
+         shadow-sm focus:border-blue-500 dark:focus:border-blue-400 
+         focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400
+         disabled:opacity-50 disabled:cursor-not-allowed
+         transition-all duration-200;
+}
+
+.form-error {
+  @apply mt-1 text-sm text-red-600 dark:text-red-400;
+}
+
+/* Status message styling */
+.form-status {
+  @apply p-4 rounded-md;
+}
+
+.form-status-success {
+  @apply bg-green-50 dark:bg-green-900 
+         text-green-700 dark:text-green-200;
+}
+
+.form-status-error {
+  @apply bg-red-50 dark:bg-red-900 
+         text-red-700 dark:text-red-200;
+}
+
+/* Step navigation buttons */
+.step-nav {
+  @apply flex justify-between mt-8;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-2 rounded-md
+         bg-blue-600 dark:bg-blue-500 
+         hover:bg-blue-700 dark:hover:bg-blue-600
+         text-white
+         focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800
+         disabled:opacity-50 disabled:cursor-not-allowed
+         transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply px-6 py-2 rounded-md
+         bg-gray-200 dark:bg-gray-700 
+         hover:bg-gray-300 dark:hover:bg-gray-600
+         text-gray-700 dark:text-gray-300
+         focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800
+         transition-all duration-200;
+}
+
+/* Form section styles */
+.form-section {
+  @apply space-y-4;
+}
+
+.form-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.form-heading {
+  @apply text-xl font-semibold text-blue-600 dark:text-blue-400;
+}
+
+/* Review section styles */
+.review-grid {
+  @apply grid gap-6 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg;
+}
+
+.review-group {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.review-label {
+  @apply font-medium text-gray-700 dark:text-gray-300;
+}
+
+.review-value {
+  @apply mt-1 text-gray-900 dark:text-white;
+}

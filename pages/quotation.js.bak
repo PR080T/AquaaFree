@@ -1,0 +1,76 @@
+import Link from 'next/link'
+import { useState } from 'react'
+
+export default function Quotation(){
+  const [qty, setQty] = useState(100)
+  const [duration, setDuration] = useState(1) // weeks
+  const [placement, setPlacement] = useState('single')
+  const [result, setResult] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  async function getQuote(e){
+    e && e.preventDefault()
+    setLoading(true)
+    const res = await fetch('/api/quote', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ qty: Number(qty), duration: Number(duration), placement })
+    })
+    const body = await res.json()
+    setResult(body)
+    setLoading(false)
+  }
+
+  return (
+    <div>
+      <header role="banner" className="site-header bg-white shadow-sm">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="logo text-2xl font-bold text-blue-600">Aquaafree</div>
+          <nav role="navigation" className="flex space-x-8">
+            <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors">Home</Link>
+            <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors">About Us</Link>
+            <Link href="/#how-it-works" className="text-gray-700 hover:text-blue-600 transition-colors scroll-smooth">How We Work</Link>
+            <Link href="/quotation" className="text-gray-700 hover:text-blue-600 transition-colors">Quotation</Link>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact Us</Link>
+          </nav>
+        </div>
+      </header>
+
+      <main className="container">
+        <h1>Quotation estimator</h1>
+        <p>Enter your desired quantity and duration to get an approximate quote.</p>
+
+        <form className="quote-form" onSubmit={getQuote} aria-label="Quotation form">
+          <label>Placement
+            <select value={placement} onChange={e=>setPlacement(e.target.value)} aria-label="Placement">
+              <option value="single">Single bottle label</option>
+              <option value="batch">Batch label</option>
+              <option value="event">Event promo</option>
+            </select>
+          </label>
+
+          <label>Quantity
+            <input type="number" min="1" value={qty} onChange={e=>setQty(e.target.value)} aria-label="Quantity" />
+          </label>
+
+          <label>Duration (weeks)
+            <input type="number" min="1" value={duration} onChange={e=>setDuration(e.target.value)} aria-label="Duration in weeks" />
+          </label>
+
+          <button type="submit" disabled={loading}>{loading ? 'Calculating…' : 'Get estimate'}</button>
+        </form>
+
+        {result && (
+          <section className="quote-result" aria-live="polite">
+            <h2>Estimated price</h2>
+            <p className="big">${result.price.toFixed(2)}</p>
+            <p className="muted">Based on your selection: {result.summary}</p>
+          </section>
+        )}
+      </main>
+
+      <footer className="site-footer">
+        <div>© {new Date().getFullYear()} Aquaafree</div>
+      </footer>
+    </div>
+  )
+}
