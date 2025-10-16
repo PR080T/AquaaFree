@@ -1,21 +1,20 @@
-# Python
+# Dependencies
+node_modules/
 __pycache__/
-*.pyc
-
-# Virtual environments
 venv/
 env/
+.env
 
-# Django stuff
+# Build files
+*.log
+*.pyc
+*.pyo
+*.pyd
 db.sqlite3
-/staticfiles/
-media/
 
 # VS Code
 .vscode/
 
 # OS files
 .DS_Store
-
-# Environment variables
-.env
+Thumbs.db
