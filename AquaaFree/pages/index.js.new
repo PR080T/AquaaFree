@@ -1,0 +1,288 @@
+import Head from 'next/head'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { testConfig } from '../test/utils'
+import Footer from '../components/Footer'
+
+const isTest = process.env.NODE_ENV === 'test'
+
+export default function Home(){
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  }
+
+  const statsVariants = {
+    initial: { scale: 0.9, opacity: 0 },
+    animate: { scale: 1, opacity: 1 },
+    transition: { duration: 0.8, delay: 0.2 }
+  }
+
+  return (
+    <div>
+      <Head>
+        <title>Aquaafree</title>
+        <meta name="description" content="Free drinking water distribution with powerful brand visibility" />
+      </Head>
+
+      <header role="banner" className="site-header bg-white shadow-lg">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="logo text-3xl font-bold text-blue-700 hover:text-blue-800 transition-colors">
+            <Link href="/">Aquaafree</Link>
+          </div>
+          {/* Desktop Navigation */}
+          <nav role="navigation" className="hidden md:flex space-x-8">
+            <Link href="/" className="text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">Home</Link>
+            <Link href="/about" className="text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">About Us</Link>
+            <Link href="#how-it-works" className="text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium scroll-smooth">How We Work</Link>
+            <Link href="/quotation" className="text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">Quotation</Link>
+            <Link href="/contact" className="text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">Contact Us</Link>
+          </nav>
+          {/* Mobile Menu Button */}
+          <button className="md:hidden text-gray-800 hover:text-blue-700 transition-colors">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        {/* Mobile Navigation Menu */}
+        <div className="md:hidden bg-white border-t border-gray-100">
+          <div className="container mx-auto px-4 py-2 space-y-2">
+            <Link href="/" className="block py-2 text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">Home</Link>
+            <Link href="/about" className="block py-2 text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">About Us</Link>
+            <Link href="#how-it-works" className="block py-2 text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">How We Work</Link>
+            <Link href="/quotation" className="block py-2 text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">Quotation</Link>
+            <Link href="/contact" className="block py-2 text-gray-800 hover:text-blue-700 transition-colors text-lg font-medium">Contact Us</Link>
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4">
+        <section className="hero relative overflow-hidden py-20">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <motion.div 
+              className="hero-content z-10 max-w-2xl"
+              {...(isTest ? testConfig : {
+                initial: "initial",
+                animate: "animate"
+              })}
+              variants={fadeIn}
+            >
+              <h1 className="text-6xl font-bold mb-8 leading-tight">
+                <span className="block bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
+                  We distribute free drinking water.
+                </span>
+                <span className="block text-4xl mt-4 text-gray-800">
+                  You get powerful brand visibility
+                </span>
+              </h1>
+              <p className="text-2xl text-gray-700 mb-8 leading-relaxed">
+                Transform your marketing budget into meaningful impact while achieving unparalleled brand exposure.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link 
+                  href="/quotation" 
+                  className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                >
+                  Get Started
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link 
+                  href="#how-it-works" 
+                  className="inline-flex items-center px-8 py-4 text-lg font-semibold text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-300"
+                >
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </Link>
+              </div>
+            </motion.div>
+            <motion.div 
+              className="relative w-full lg:w-1/2"
+              {...(isTest ? testConfig : {
+                initial: { opacity: 0, x: 100 },
+                animate: { opacity: 1, x: 0 }
+              })}
+              transition={{ duration: 0.8 }}
+            >
+              <img 
+                src="/headline.png" 
+                alt="Water bottle with branding" 
+                className="w-full h-auto max-w-2xl mx-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent z-[-1]" />
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="about" className="py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h2 className="text-4xl font-bold mb-6">About Us</h2>
+            <p className="text-xl text-gray-600 mb-6">
+              Founded by Amogh Jain, Aquaafree bridges the gap between impactful marketing and community welfare.
+              Our innovative approach transforms water distribution into a powerful force for positive change.
+            </p>
+            <p className="text-xl text-gray-600 mb-12">
+              We believe in creating lasting impact through community harmony, sustainable practices, and accessible water distribution.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+            {[
+              {
+                title: "Community Harmony",
+                description: "Fostering unity and cooperation through accessible water distribution and local engagement",
+                icon: "🤝",
+                color: "from-blue-500 to-blue-600"
+              },
+              {
+                title: "Maximum Impact",
+                description: "Strategic distribution in high-traffic areas ensures your message reaches thousands daily",
+                icon: "📈",
+                color: "from-green-500 to-green-600"
+              },
+              {
+                title: "Social Responsibility",
+                description: "Combining business success with meaningful community development and support",
+                icon: "💫",
+                color: "from-purple-500 to-purple-600"
+              },
+              {
+                title: "Environmental Care",
+                description: "Commitment to sustainable practices and eco-friendly materials for a greener future",
+                icon: "🌱",
+                color: "from-teal-500 to-teal-600"
+              },
+              {
+                title: "Local Empowerment",
+                description: "Creating employment opportunities and supporting local initiatives",
+                icon: "🏢",
+                color: "from-indigo-500 to-indigo-600"
+              },
+              {
+                title: "Innovation & Technology",
+                description: "Using QR codes and analytics for smart, data-driven distribution",
+                icon: "💡",
+                color: "from-orange-500 to-orange-600"
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`bg-gradient-to-br ${feature.color} text-white rounded-lg shadow-xl p-8 transform hover:scale-105 transition-transform duration-300`}
+              >
+                <div className="text-5xl mb-6">{feature.icon}</div>
+                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                <p className="text-white text-lg leading-relaxed opacity-90">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        <section id="how-it-works" className="how-it-works py-20 bg-gradient-to-b from-gray-50 to-white">
+          <motion.div 
+            className="container mx-auto px-4"
+            {...(isTest ? testConfig : {
+              initial: { opacity: 0 },
+              whileInView: { opacity: 1 },
+              transition: { duration: 0.8 },
+              viewport: { once: true }
+            })}
+          >
+            <h2 className="text-5xl font-bold text-center mb-16">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
+                How We Work
+              </span>
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  step: 1,
+                  title: "Brands Sponsor Distribution",
+                  description: "Partner with us to sponsor water distribution in high-traffic areas"
+                },
+                {
+                  step: 2,
+                  title: "Custom Branding",
+                  description: "We print your brand message on premium water bottles"
+                },
+                {
+                  step: 3,
+                  title: "Strategic Distribution",
+                  description: "Free water is distributed in carefully selected public locations"
+                },
+                {
+                  step: 4,
+                  title: "Maximize Impact",
+                  description: "Gain visibility and build goodwill in the community"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.step}
+                  className="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300"
+                  {...(isTest ? testConfig : {
+                    initial: { opacity: 0, y: 20 },
+                    whileInView: { opacity: 1, y: 0 },
+                    transition: { duration: 0.5, delay: index * 0.1 },
+                    viewport: { once: true }
+                  })}
+                >
+                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div 
+              className="stats-grid grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="stat-card bg-gradient-to-br from-blue-600 to-blue-700 text-white p-10 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1"
+                variants={statsVariants}
+              >
+                <h3 className="text-5xl font-bold mb-4">10x</h3>
+                <p className="text-xl">More impressions than traditional advertising</p>
+              </motion.div>
+              
+              <motion.div
+                className="stat-card bg-gradient-to-br from-cyan-500 to-cyan-600 text-white p-10 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1"
+                variants={statsVariants}
+              >
+                <h3 className="text-5xl font-bold mb-4">70%</h3>
+                <p className="text-xl">Lower cost per impression vs direct mail</p>
+              </motion.div>
+              
+              <motion.div
+                className="stat-card bg-gradient-to-br from-blue-500 to-cyan-500 text-white p-10 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1"
+                variants={statsVariants}
+              >
+                <h3 className="text-5xl font-bold mb-4">100%</h3>
+                <p className="text-xl">Positive brand association</p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
