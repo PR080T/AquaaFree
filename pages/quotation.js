@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useToast } from '../lib/toast-context'
-import LoadingSpinner from '../components/LoadingSpinner'
+import { LoadingSpinner } from '../components/LoadingSpinner'
 import Footer from '../components/Footer'
 
 const initialFormState = {
@@ -112,20 +112,22 @@ export default function Quotation() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/quote', {
+      const response = await fetch('http://localhost:5000/submit-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
       })
 
       const data = await response.json()
+      console.log('Quote API response:', data)
 
       if (response.ok) {
-        addToast('Thank you! We will get back to you shortly with a quotation.', 'success')
         setForm(initialFormState)
+        // Ensure toast is visible for at least 1 second
+        addToast(data.message || 'Submitted successfully!', 'success', 1000)
       } else {
         const errorMessage = data.message || 'Failed to submit. Please try again later.'
-        addToast(errorMessage, 'error')
+        addToast(errorMessage, 'error', 1000)
       }
     } catch (error) {
       console.error('Quotation submission error:', error)
@@ -403,7 +405,7 @@ export default function Quotation() {
                     <span className="ml-2">Submitting...</span>
                   </>
                 ) : (
-                  'Submit Request In Rupees'
+                  'Submit'
                 )}
               </motion.button>
             </div>

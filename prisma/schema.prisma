@@ -23,9 +23,9 @@ model Quote {
   city             String
   companyName      String
   businessType     String
-  advertisementType String
-  quantity         Int
-  budget           Float
+  advertiseContent String @db.Text
+  quantity         String
+  budget           String
   status           String   @default("PENDING")
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
