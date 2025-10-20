@@ -1,5 +1,11 @@
 {
   "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/about": "pages/about.html",
+  "/api/quote": "pages/api/quote.js",
+  "/api/contact": "pages/api/contact.js",
+  "/contact": "pages/contact.html",
+  "/": "pages/index.html",
+  "/quotation": "pages/quotation.html"
 }
