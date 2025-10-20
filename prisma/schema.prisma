@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model Contact {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   email     String
   message   String
@@ -16,17 +16,17 @@ model Contact {
 }
 
 model Quote {
-  id                Int      @id @default(autoincrement())
-  fullName         String
-  email            String
-  phone            String
-  city             String
-  companyName      String
-  businessType     String
-  advertiseContent String @db.Text
-  quantity         String
-  budget           String
-  status           String   @default("PENDING")
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  fullName          String
+  email             String
+  phone             String
+  city              String
+  companyName       String
+  businessType      String
+  advertisementType String
+  quantity          Int
+  budget            Float
+  status            String   @default("PENDING")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 }

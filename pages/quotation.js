@@ -12,7 +12,7 @@ const initialFormState = {
   city: '',
   companyName: '',
   businessType: '',
-  advertiseContent: '',
+  advertisementType: '',
   quantity: '',
   budget: ''
 }
@@ -73,8 +73,8 @@ export default function Quotation() {
       validationErrors.businessType = 'Please select your business type'
     }
 
-    if (!form.advertiseContent.trim()) {
-      validationErrors.advertiseContent = 'Please describe what you want to advertise'
+    if (!form.advertisementType.trim()) {
+      validationErrors.advertisementType = 'Please describe what you want to advertise'
     }
 
     if (!form.quantity.trim()) {
@@ -112,7 +112,7 @@ export default function Quotation() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('http://localhost:5000/submit-quote', {
+      const response = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
@@ -331,20 +331,20 @@ export default function Quotation() {
               </header>
               <div className="space-y-6">
                 <div className="form-group">
-                  <label htmlFor="advertiseContent" className="form-label">
+                  <label htmlFor="advertisementType" className="form-label">
                     What would you like to advertise?*
                   </label>
                   <textarea
-                    id="advertiseContent"
-                    name="advertiseContent"
+                    id="advertisementType"
+                    name="advertisementType"
                     rows={4}
                     required
-                    value={form.advertiseContent}
+                    value={form.advertisementType}
                     onChange={handleChange}
-                    className={`${getFieldClasses('advertiseContent')} resize-none`}
+                    className={`${getFieldClasses('advertisementType')} resize-none`}
                     placeholder="Describe the product, service, or message you want on the bottles."
                   />
-                  {errors.advertiseContent && <p className="form-error">{errors.advertiseContent}</p>}
+                  {errors.advertisementType && <p className="form-error">{errors.advertisementType}</p>}
                 </div>
 
                 <div className="form-grid">
