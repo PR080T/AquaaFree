@@ -5,45 +5,6 @@ exports.id = 820;
 exports.ids = [820];
 exports.modules = {
 
-/***/ 6226:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ CustomError)
-});
-
-;// CONCATENATED MODULE: external "next/error"
-const error_namespaceObject = require("next/error");
-var error_default = /*#__PURE__*/__webpack_require__.n(error_namespaceObject);
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(5893);
-;// CONCATENATED MODULE: ./pages/_error.js
-
-
-function CustomError({
-  statusCode
-}) {
-  return /*#__PURE__*/jsx_runtime.jsx((error_default()), {
-    statusCode: statusCode
-  });
-}
-
-CustomError.getInitialProps = ({
-  res,
-  err
-}) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  return {
-    statusCode
-  };
-};
-
-/***/ }),
-
 /***/ 283:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -66,9 +27,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_dist_server_future_route_modules_pages_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3185);
 /* harmony import */ var next_dist_server_future_route_modules_pages_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_future_route_modules_pages_module__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_dist_build_webpack_loaders_next_route_loader_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7182);
-/* harmony import */ var private_next_pages_document_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9911);
-/* harmony import */ var private_next_pages_app_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5460);
-/* harmony import */ var private_next_pages_error_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6226);
+/* harmony import */ var private_next_pages_document_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6088);
+/* harmony import */ var private_next_pages_app_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6004);
+/* harmony import */ var private_next_pages_error_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5354);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([private_next_pages_app_js__WEBPACK_IMPORTED_MODULE_3__]);
 private_next_pages_app_js__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
@@ -116,6 +77,40 @@ private_next_pages_app_js__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_depend
     
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 5354:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ CustomError)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+;// CONCATENATED MODULE: external "next/error"
+const error_namespaceObject = require("next/error");
+var error_default = /*#__PURE__*/__webpack_require__.n(error_namespaceObject);
+;// CONCATENATED MODULE: ./pages/_error.js
+
+
+function CustomError({ statusCode }) {
+    return /*#__PURE__*/ jsx_runtime.jsx((error_default()), {
+        statusCode: statusCode
+    });
+}
+CustomError.getInitialProps = ({ res, err })=>{
+    const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+    return {
+        statusCode
+    };
+};
+
 
 /***/ }),
 
@@ -203,7 +198,7 @@ module.exports = import("framer-motion");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [207,341], () => (__webpack_exec__(283)));
+var __webpack_exports__ = __webpack_require__.X(0, [207,947], () => (__webpack_exec__(283)));
 module.exports = __webpack_exports__;
 
 })();

@@ -74,6 +74,9 @@ export default async function handler(req, res) {
       })
     }
 
+    // Test database connection before creating record
+    await prisma.$connect()
+
     await prisma.quote.create({
       data: {
         fullName,
@@ -94,6 +97,10 @@ export default async function handler(req, res) {
     console.error('Quote submission error:', error)
     if (error?.status === 429) {
       return res.status(429).json({ message: 'Too many requests, please try again later' })
+    }
+    // Check if it's a database connection error
+    if (error.code === 'P1001' || error.code === 'P1017') {
+      return res.status(500).json({ message: 'Database connection failed' })
     }
     return res.status(500).json({ message: 'Internal server error' })
   }

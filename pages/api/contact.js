@@ -27,6 +27,9 @@ export default async function handler(req, res) {
   try {
     const { name, email, message } = req.body
 
+    // Test database connection before creating record
+    await prisma.$connect()
+
     const row = await prisma.contact.create({
       data: { name, email, message }
     })
@@ -41,7 +44,11 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true, id: row.id })
   } catch (e) {
-    console.error(e)
+    console.error('Contact API error:', e)
+    // Check if it's a database connection error
+    if (e.code === 'P1001' || e.code === 'P1017') {
+      return res.status(500).json({ error: 'Database connection failed' })
+    }
     return res.status(500).json({ error: 'Server error' })
   }
 }

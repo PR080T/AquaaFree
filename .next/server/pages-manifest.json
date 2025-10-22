@@ -1,11 +1,11 @@
 {
-  "/_app": "pages/_app.js",
-  "/api/quote": "pages/api/quote.js",
-  "/api/contact": "pages/api/contact.js",
-  "/_document": "pages/_document.js",
-  "/quotation": "pages/quotation.html",
-  "/": "pages/index.html",
   "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/_app": "pages/_app.js",
   "/about": "pages/about.html",
-  "/contact": "pages/contact.html"
+  "/api/contact": "pages/api/contact.js",
+  "/api/quote": "pages/api/quote.js",
+  "/quotation": "pages/quotation.html",
+  "/contact": "pages/contact.html",
+  "/": "pages/index.html"
 }
