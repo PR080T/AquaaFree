@@ -55,13 +55,39 @@ export default function Contact(){
 
                 <div className="card-compact">
                   <h2 className="text-xl font-semibold mb-3 text-teal-100">Leadership</h2>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-300 text-black rounded-full flex items-center justify-center font-bold">
-                      AJ
-                    </div>
-                    <div>
-                      <p className="font-semibold text-teal-100">Amogh Jain</p>
-                      <p className="text-teal-100/70">Founder & CEO</p>
+                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-500/50 via-cyan-400/40 to-emerald-500/50 shadow-[0_28px_75px_-35px_rgba(45,212,191,0.9)]">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.25),_rgba(15,118,110,0))]" />
+                    <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border border-teal-300/30" />
+                    <div className="relative flex flex-col gap-6 px-7 py-8 md:flex-row md:items-center">
+                      <div className="relative">
+                        <div className="w-24 h-24 rounded-[28px] bg-gradient-to-br from-emerald-300 via-teal-200 to-cyan-300 flex items-center justify-center text-black text-3xl font-extrabold shadow-[0_18px_45px_-25px_rgba(94,234,212,1)] ring-4 ring-teal-100/20">
+                          AJ
+                        </div>
+                        <div className="absolute -top-2 -right-2 h-9 w-9 rounded-full border border-white/30 bg-teal-300/80 backdrop-blur-sm" />
+                        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/70 text-[10px] uppercase tracking-[0.4em] text-teal-100/70">
+                          Vision
+                        </div>
+                      </div>
+                      <div className="flex-1 space-y-5 text-center md:text-left">
+                        <div className="space-y-1">
+                          <p className="text-2xl font-semibold text-teal-50">Amogh Jain</p>
+                          <p className="text-xs uppercase tracking-[0.4em] text-teal-100/70">Founder & CEO</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4 text-left text-xs text-teal-100/70">
+                          <div className="space-y-1">
+                            <p className="text-[10px] uppercase tracking-[0.35em] text-teal-100/50">Experience</p>
+                            <p className="text-sm text-teal-50">12+ Years</p>
+                          </div>
+                          <div className="space-y-1">
+                            <p className="text-[10px] uppercase tracking-[0.35em] text-teal-100/50">Focus</p>
+                            <p className="text-sm text-teal-50">Sustainable Growth</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-center gap-3 text-left md:justify-start">
+                          <span className="h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
+                          <p className="text-xs text-teal-100/80">Leading with empathy, innovation, and purpose</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -69,8 +95,7 @@ export default function Contact(){
                 <div className="card-compact">
                   <h2 className="text-xl font-semibold mb-3 text-teal-100">Office Location</h2>
                   <p className="text-teal-100/80">
-                    123 Business District<br />
-                    City Center, State 12345
+                    HIG colony , indore - 452011
                   </p>
                 </div>
               </div>
@@ -80,7 +105,7 @@ export default function Contact(){
                   <h2 className="text-xl font-semibold text-teal-100">Contact Details</h2>
                   <div className="space-y-2 text-teal-100/80">
                     <p className="flex items-center gap-2">
-                      <span>📞</span> (555) 123-4567
+                      <span>📞</span> 9238710077
                     </p>
                     <p className="flex items-center gap-2">
                       <span>📧</span> info@aquaafree.example
@@ -95,7 +120,7 @@ export default function Contact(){
                   <h2 className="text-xl font-semibold text-teal-100">Connect With Us</h2>
                   <div className="flex flex-wrap gap-3">
                     <a 
-                      href="https://instagram.com/aquaafree" 
+                      href="https://www.instagram.com/aquaafree?igsh=eG5kbzZwMTZ3bm0=" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="btn-secondary px-4 py-2 flex items-center gap-2"
