@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Footer from '../components/Footer'
+import { contactInfo } from '../config/contact'
 
 export default function Contact(){
   return (
@@ -55,37 +56,35 @@ export default function Contact(){
 
                 <div className="card-compact">
                   <h2 className="text-xl font-semibold mb-3 text-teal-100">Leadership</h2>
-                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-500/50 via-cyan-400/40 to-emerald-500/50 shadow-[0_28px_75px_-35px_rgba(45,212,191,0.9)]">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.25),_rgba(15,118,110,0))]" />
-                    <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border border-teal-300/30" />
-                    <div className="relative flex flex-col gap-6 px-7 py-8 md:flex-row md:items-center">
-                      <div className="relative">
-                        <div className="w-24 h-24 rounded-[28px] bg-gradient-to-br from-emerald-300 via-teal-200 to-cyan-300 flex items-center justify-center text-black text-3xl font-extrabold shadow-[0_18px_45px_-25px_rgba(94,234,212,1)] ring-4 ring-teal-100/20">
-                          AJ
+                  <div className="rounded-2xl bg-gradient-to-r from-teal-900/30 to-cyan-900/30 border border-teal-800/50 p-6 md:p-8">
+                    <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                      <div className="flex-shrink-0 w-full md:w-auto flex md:flex-col items-start md:items-center gap-4 md:gap-0 md:text-center">
+                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-teal-400/20 to-cyan-400/20 border-2 border-teal-400/50 flex items-center justify-center flex-shrink-0">
+                          <svg className="w-10 h-10 md:w-12 md:h-12 text-teal-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                          </svg>
                         </div>
-                        <div className="absolute -top-2 -right-2 h-9 w-9 rounded-full border border-white/30 bg-teal-300/80 backdrop-blur-sm" />
-                        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/70 text-[10px] uppercase tracking-[0.4em] text-teal-100/70">
-                          Vision
+                        <div className="md:mt-3">
+                          <p className="text-lg md:text-xl font-semibold text-teal-50">Amogh Jain</p>
+                          <p className="text-xs md:text-sm uppercase tracking-widest text-teal-300/80 font-medium mt-1">Founder & CEO</p>
                         </div>
                       </div>
-                      <div className="flex-1 space-y-5 text-center md:text-left">
-                        <div className="space-y-1">
-                          <p className="text-2xl font-semibold text-teal-50">Amogh Jain</p>
-                          <p className="text-xs uppercase tracking-[0.4em] text-teal-100/70">Founder & CEO</p>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4 text-left text-xs text-teal-100/70">
-                          <div className="space-y-1">
-                            <p className="text-[10px] uppercase tracking-[0.35em] text-teal-100/50">Experience</p>
-                            <p className="text-sm text-teal-50">12+ Years</p>
+                      <div className="flex-1 space-y-5">
+                        <div className="grid grid-cols-2 gap-6">
+                          <div>
+                            <p className="text-[10px] md:text-xs uppercase tracking-wider text-teal-400/60 font-semibold">Experience</p>
+                            <p className="text-sm md:text-base text-teal-100 mt-2">12+ Years</p>
                           </div>
-                          <div className="space-y-1">
-                            <p className="text-[10px] uppercase tracking-[0.35em] text-teal-100/50">Focus</p>
-                            <p className="text-sm text-teal-50">Sustainable Growth</p>
+                          <div>
+                            <p className="text-[10px] md:text-xs uppercase tracking-wider text-teal-400/60 font-semibold">Focus</p>
+                            <p className="text-sm md:text-base text-teal-100 mt-2">Sustainable Growth</p>
                           </div>
                         </div>
-                        <div className="flex items-center justify-center gap-3 text-left md:justify-start">
-                          <span className="h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
-                          <p className="text-xs text-teal-100/80">Leading with empathy, innovation, and purpose</p>
+                        <div className="pt-3 border-t border-teal-800/50">
+                          <p className="text-xs md:text-sm text-teal-200/90 flex items-start gap-2">
+                            <span className="text-teal-400 mt-1 flex-shrink-0">✓</span>
+                            <span>Leading with empathy, innovation, and purpose</span>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -95,7 +94,7 @@ export default function Contact(){
                 <div className="card-compact">
                   <h2 className="text-xl font-semibold mb-3 text-teal-100">Office Location</h2>
                   <p className="text-teal-100/80">
-                    HIG colony , indore - 452011
+                    {contactInfo.officeLocation}
                   </p>
                 </div>
               </div>
@@ -105,13 +104,15 @@ export default function Contact(){
                   <h2 className="text-xl font-semibold text-teal-100">Contact Details</h2>
                   <div className="space-y-2 text-teal-100/80">
                     <p className="flex items-center gap-2">
-                      <span>📞</span> 9238710077
+                      <span>📞</span>
+                      <a href={`tel:${contactInfo.phone}`} className="hover:text-teal-100 transition-colors">{contactInfo.phone}</a>
                     </p>
                     <p className="flex items-center gap-2">
-                      <span>📧</span> info@aquaafree.example
+                      <span>📧</span>
+                      <a href={`mailto:${contactInfo.email}`} className="hover:text-teal-100 transition-colors">{contactInfo.email}</a>
                     </p>
                     <p className="flex items-center gap-2">
-                      <span>⏰</span> Mon-Fri: 9:00 AM - 6:00 PM
+                      <span>⏰</span> {contactInfo.businessHours}
                     </p>
                   </div>
                 </div>
@@ -119,22 +120,46 @@ export default function Contact(){
                 <div className="card-compact space-y-4">
                   <h2 className="text-xl font-semibold text-teal-100">Connect With Us</h2>
                   <div className="flex flex-wrap gap-3">
-                    <a 
-                      href="https://www.instagram.com/aquaafree?igsh=eG5kbzZwMTZ3bm0=" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="btn-secondary px-4 py-2 flex items-center gap-2"
-                    >
-                      <span>📸</span> Instagram
-                    </a>
-                    <a 
-                      href="https://linkedin.com/company/aquaafree" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="btn-secondary px-4 py-2 flex items-center gap-2"
-                    >
-                      <span>💼</span> LinkedIn
-                    </a>
+                    {contactInfo.social.instagram.url && (
+                      <a 
+                        href={contactInfo.social.instagram.url}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn-secondary px-4 py-2 flex items-center gap-2"
+                      >
+                        <span>📸</span> {contactInfo.social.instagram.label}
+                      </a>
+                    )}
+                    {contactInfo.social.linkedin.url && (
+                      <a 
+                        href={contactInfo.social.linkedin.url}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn-secondary px-4 py-2 flex items-center gap-2"
+                      >
+                        <span>💼</span> {contactInfo.social.linkedin.label}
+                      </a>
+                    )}
+                    {contactInfo.social.facebook.url && (
+                      <a 
+                        href={contactInfo.social.facebook.url}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn-secondary px-4 py-2 flex items-center gap-2"
+                      >
+                        <span>👥</span> {contactInfo.social.facebook.label}
+                      </a>
+                    )}
+                    {contactInfo.social.twitter.url && (
+                      <a 
+                        href={contactInfo.social.twitter.url}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn-secondary px-4 py-2 flex items-center gap-2"
+                      >
+                        <span>🐦</span> {contactInfo.social.twitter.label}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
