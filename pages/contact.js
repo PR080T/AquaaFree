@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Footer from '../components/Footer'
+import Footer, { getSocialIcon } from '../components/Footer'
 import { contactInfo } from '../config/contact'
 
 export default function Contact(){
@@ -69,24 +69,6 @@ export default function Contact(){
                           <p className="text-xs md:text-sm uppercase tracking-widest text-teal-300/80 font-medium mt-1">Founder & CEO</p>
                         </div>
                       </div>
-                      <div className="flex-1 space-y-5">
-                        <div className="grid grid-cols-2 gap-6">
-                          <div>
-                            <p className="text-[10px] md:text-xs uppercase tracking-wider text-teal-400/60 font-semibold">Experience</p>
-                            <p className="text-sm md:text-base text-teal-100 mt-2">12+ Years</p>
-                          </div>
-                          <div>
-                            <p className="text-[10px] md:text-xs uppercase tracking-wider text-teal-400/60 font-semibold">Focus</p>
-                            <p className="text-sm md:text-base text-teal-100 mt-2">Sustainable Growth</p>
-                          </div>
-                        </div>
-                        <div className="pt-3 border-t border-teal-800/50">
-                          <p className="text-xs md:text-sm text-teal-200/90 flex items-start gap-2">
-                            <span className="text-teal-400 mt-1 flex-shrink-0">✓</span>
-                            <span>Leading with empathy, innovation, and purpose</span>
-                          </p>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -127,7 +109,8 @@ export default function Contact(){
                         rel="noopener noreferrer"
                         className="btn-secondary px-4 py-2 flex items-center gap-2"
                       >
-                        <span>📸</span> {contactInfo.social.instagram.label}
+                        {getSocialIcon(contactInfo.social.instagram.icon, 'w-5 h-5')}
+                        <span>{contactInfo.social.instagram.label}</span>
                       </a>
                     )}
                     {contactInfo.social.linkedin.url && (
