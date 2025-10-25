@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { useState } from 'react'
-import Link from 'next/link'
 import Footer, { getSocialIcon } from '../components/Footer'
 import { contactInfo } from '../config/contact'
 
