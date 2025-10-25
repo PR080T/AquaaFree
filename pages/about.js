@@ -1,9 +1,13 @@
 import Head from 'next/head'
+import Head from 'next/head'
+import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Footer from '../components/Footer'
 
 export default function About() {
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false)
+
   const features = [
     {
       title: "QR Code Integration",
@@ -56,19 +60,26 @@ export default function About() {
             <Link href="/quotation" className="nav-link">Quotation</Link>
             <Link href="/contact" className="nav-link">Contact Us</Link>
           </nav>
-          <button className="mobile-nav-toggle" type="button" aria-label="Open navigation menu">
+          <button
+            className="mobile-nav-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded={isMobileNavOpen}
+            aria-controls="mobile-nav-panel"
+            onClick={() => setMobileNavOpen(value => !value)}
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
-        <div className="mobile-nav-panel">
+        <div id="mobile-nav-panel" className={`mobile-nav-panel${isMobileNavOpen ? ' mobile-nav-panel-open' : ' hidden'}`}>
           <div className="container space-y-2 py-3">
-            <Link href="/" className="nav-link">Home</Link>
-            <Link href="/about" className="nav-link nav-link-active">About Us</Link>
-            <Link href="/#how-it-works" className="nav-link">How We Work</Link>
-            <Link href="/quotation" className="nav-link">Quotation</Link>
-            <Link href="/contact" className="nav-link">Contact Us</Link>
+            <Link href="/" className="nav-link" onClick={() => setMobileNavOpen(false)}>Home</Link>
+            <Link href="/about" className="nav-link nav-link-active" onClick={() => setMobileNavOpen(false)}>About Us</Link>
+            <Link href="/#how-it-works" className="nav-link" onClick={() => setMobileNavOpen(false)}>How We Work</Link>
+            <Link href="/quotation" className="nav-link" onClick={() => setMobileNavOpen(false)}>Quotation</Link>
+            <Link href="/contact" className="nav-link" onClick={() => setMobileNavOpen(false)}>Contact Us</Link>
           </div>
         </div>
       </header>

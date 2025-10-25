@@ -1,10 +1,19 @@
 import Link from 'next/link'
+import Head from 'next/head'
+import { useState } from 'react'
+import Link from 'next/link'
 import Footer, { getSocialIcon } from '../components/Footer'
 import { contactInfo } from '../config/contact'
 
 export default function Contact(){
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false)
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-black via-teal-950 to-black text-teal-100">
+      <Head>
+        <title>Contact Us - Aquaafree</title>
+        <meta name="description" content="Contact Aquaafree for partnerships and support" />
+      </Head>
       <header role="banner" className="site-header">
         <div className="container flex justify-between items-center">
           <div className="logo">
@@ -17,19 +26,26 @@ export default function Contact(){
             <Link href="/quotation" className="nav-link">Quotation</Link>
             <Link href="/contact" className="nav-link nav-link-active">Contact Us</Link>
           </nav>
-          <button className="mobile-nav-toggle" type="button" aria-label="Open navigation menu">
+          <button
+            className="mobile-nav-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded={isMobileNavOpen}
+            aria-controls="mobile-nav-panel"
+            onClick={() => setMobileNavOpen(value => !value)}
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
-        <div className="mobile-nav-panel">
+        <div id="mobile-nav-panel" className={`mobile-nav-panel${isMobileNavOpen ? ' mobile-nav-panel-open' : ' hidden'}`}>
           <div className="container space-y-2 py-3">
-            <Link href="/" className="nav-link">Home</Link>
-            <Link href="/about" className="nav-link">About Us</Link>
-            <Link href="/#how-it-works" className="nav-link">How We Work</Link>
-            <Link href="/quotation" className="nav-link">Quotation</Link>
-            <Link href="/contact" className="nav-link nav-link-active">Contact Us</Link>
+            <Link href="/" className="nav-link" onClick={() => setMobileNavOpen(false)}>Home</Link>
+            <Link href="/about" className="nav-link" onClick={() => setMobileNavOpen(false)}>About Us</Link>
+            <Link href="/#how-it-works" className="nav-link" onClick={() => setMobileNavOpen(false)}>How We Work</Link>
+            <Link href="/quotation" className="nav-link" onClick={() => setMobileNavOpen(false)}>Quotation</Link>
+            <Link href="/contact" className="nav-link nav-link-active" onClick={() => setMobileNavOpen(false)}>Contact Us</Link>
           </div>
         </div>
       </header>

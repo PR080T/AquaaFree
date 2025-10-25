@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Head from 'next/head'
+import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { testConfig } from '../test/utils'
@@ -7,6 +9,8 @@ import Footer from '../components/Footer'
 const isTest = process.env.NODE_ENV === 'test'
 
 export default function Home(){
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false)
+
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -18,6 +22,9 @@ export default function Home(){
     animate: { scale: 1, opacity: 1 },
     transition: { duration: 0.8, delay: 0.2 }
   }
+
+  const toggleMobileNav = () => setMobileNavOpen(value => !value)
+  const closeMobileNav = () => setMobileNavOpen(false)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-teal-950 to-black flex flex-col">
@@ -38,19 +45,26 @@ export default function Home(){
             <Link href="/quotation" className="nav-link">Quotation</Link>
             <Link href="/contact" className="nav-link">Contact Us</Link>
           </nav>
-          <button className="mobile-nav-toggle" type="button" aria-label="Open navigation menu">
+          <button
+            className="mobile-nav-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded={isMobileNavOpen}
+            aria-controls="mobile-nav-panel"
+            onClick={toggleMobileNav}
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
-        <div className="mobile-nav-panel">
+        <div id="mobile-nav-panel" className={`mobile-nav-panel${isMobileNavOpen ? ' mobile-nav-panel-open' : ' hidden'}`}>
           <div className="container space-y-2 py-3">
-            <Link href="/" className="nav-link nav-link-active">Home</Link>
-            <Link href="/about" className="nav-link">About Us</Link>
-            <Link href="/#how-it-works" className="nav-link">How We Work</Link>
-            <Link href="/quotation" className="nav-link">Quotation</Link>
-            <Link href="/contact" className="nav-link">Contact Us</Link>
+            <Link href="/" className="nav-link nav-link-active" onClick={closeMobileNav}>Home</Link>
+            <Link href="/about" className="nav-link" onClick={closeMobileNav}>About Us</Link>
+            <Link href="/#how-it-works" className="nav-link" onClick={closeMobileNav}>How We Work</Link>
+            <Link href="/quotation" className="nav-link" onClick={closeMobileNav}>Quotation</Link>
+            <Link href="/contact" className="nav-link" onClick={closeMobileNav}>Contact Us</Link>
           </div>
         </div>
       </header>
